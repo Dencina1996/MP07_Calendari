@@ -3,7 +3,7 @@
 <head>
 	<title>Calendari</title>
 </head>
-<body>
+<body align="center">
 	<table border="2">
 		<tr>
 			<td>Dilluns</td>
@@ -16,22 +16,27 @@
 		</tr>
 		<?php
 
-			 $First_Day = strtolower(date('d', strtotime('first day of this month')));
-			 $Last_Day = strtolower(date('d', strtotime('last day of this month')));
-			
-			echo $First_Day;
-			echo $Last_Day;
+			$First_Day_Start = 5;
+			$First_Day = date('d', strtotime('first day of this month'));
+			$Last_Day = date('d', strtotime('last day of this month'));
+			$Today = date('d', strtotime('today'));
+			$Columna = 0;
 
-			// echo"<tr>";
+			for ($i = $First_Day; $i <= $Last_Day; $i ++) {
 
-			// for ($i = 1; $i < 8; $i ++) {
+				if ($Columna <=6) {
 
-				// echo "<td>$i</td>";
+					$Columna++;				
+					echo "<td>$i</td>";
+
+				} else {
+
+					echo "<tr>";
+					$Columna = 0;
+
+				}
 				
-				// }
-		
-			// echo "</tr>";
-			
+			}
 			
 		?>
 	</table>
